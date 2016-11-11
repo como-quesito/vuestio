@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="node_modules/vue/dist/vue.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.13/vue-resource.min.js"></script>
+
+    </head>
+    <body>
+        <div id="app">
+             {{mensa}}
+              <button v-on:click="greet">Greet</button>
+        </div>
+      
+        <script>
+
+            var app=new Vue({
+                el:'#app',
+                data:{
+                    mensa:''
+                },
+   
+  
+     methods: {
+    greet: function (event) {
+      // `this` inside methods points to the Vue instance
+
+      alert('Holaaaa');
+      
+          this.$http.get('http://localhost:9090/prueba', function (data) {
+            // set data on vm
+           
+            console.log("asasasa");
+            alert(data);
+
+        }).error(function (data, status, request) {
+            // handle error
+            alert("Hola mala"+request);
+           
+           // this.$set('mensa', 'maloooo');
+        })
+    }
+  },
+                
+                
+               
+                ready:function(){
+                
+                   this.$http.get('/prueba', function (data) {
+            // set data on vm
+            this.$set('mensa', data)
+            console.log("asasasa");
+            alert("Hola");
+
+        }).error(function (data, status, request) {
+            // handle error
+            console.log('malo');
+            this.$set('mensa', 'maloooo');
+        })
+
+      
+                }
+                
+            });
+            
+
+            
+          
+        </script>
+    </body>
+</html>

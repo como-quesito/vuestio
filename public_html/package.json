@@ -1,0 +1,17 @@
+{
+  "name": "vuesito",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "campitos",
+  "contributors": [],
+  "dependencies": {
+    "vue": "^2.0.5",
+    "vue-devtools": "^2.0.4"
+  }
+}
