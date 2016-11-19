@@ -10,50 +10,47 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="node_modules/vue/dist/vue.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.13/vue-resource.min.js"></script>
+        <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 
     </head>
     <body>
         <div id="app">
-             {{mensa}}
-              <button v-on:click="greet">Greet</button>
+            {{mensa}}
+            <button v-on:click="greet">Greet</button>
         </div>
-      
+
         <script>
 
-            var app=new Vue({
-                el:'#app',
-                data:{
-                    mensa:''
-                },
-   
-  
-     methods: {
-    greet: function (event) {
-      // `this` inside methods points to the Vue instance
+var app = new Vue({
+    el: '#app',
+    data: {
+        mensa: ''
+    },
 
-      alert('Holaaaa');
-      
-          this.$http.get('http://localhost:9090/prueba', function (data) {
-            // set data on vm
-           
-            console.log("asasasa");
-            alert(data);
+    methods: {
+        greet: function (event) {
+            // `this` inside methods points to the Vue instance
 
-        }).error(function (data, status, request) {
-            // handle error
-            alert("Hola mala"+request);
-           
-           // this.$set('mensa', 'maloooo');
-        })
-    }
-  },
-                
-                
-               
-                ready:function(){
-                
-                   this.$http.get('/prueba', function (data) {
+            alert('Holaaaa');
+
+            this.$http.get('http://localhost:9090/prueba', function (data) {
+                // set data on vm
+
+                console.log("asasasa");
+                alert(data);
+
+            }).error(function (data, status, request) {
+                // handle error
+                alert("Hola mala" + request);
+
+                // this.$set('mensa', 'maloooo');
+            })
+        }
+    },
+
+    ready: function () {
+
+        this.$http.get('/prueba', function (data) {
             // set data on vm
             this.$set('mensa', data)
             console.log("asasasa");
@@ -65,14 +62,14 @@ and open the template in the editor.
             this.$set('mensa', 'maloooo');
         })
 
-      
-                }
-                
-            });
-            
 
-            
-          
+    }
+
+});
+
+
+
+
         </script>
     </body>
 </html>
