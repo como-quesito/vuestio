@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="node_modules/vue/dist/vue.js"></script>
+        <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    </head>
+    <body>
+        <div id="ap">
+            <ol>
+                <elemento-x v-for="listita in listaVegetales" v-bind:lista="listita"></elemento-x>  
+            </ol>
+        </div>
+        <script>
+                Vue.component('elemento-x',{
+                props:['lista'],
+                template:'<li>{{lista.vegetal}}</li>'})
+            var ap=new Vue({
+                el:'#ap',
+                data:{
+                    listaVegetales:[
+                        {vegetal:'betabel'},
+                        {vegetal:'brocoli'},
+                        {vegetal:'lechuga'},
+                        {vegetal:'rábano'}
+                    ]
+                }
+            });
+        
+        </script>
+    </body>
+</html>
